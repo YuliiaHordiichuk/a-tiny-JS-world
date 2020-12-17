@@ -49,7 +49,20 @@ const cat = {
 const inhabitants = [man, woman, dog, cat]; 
 
 let message = (obj) => {
-   return `${obj.saying} I am a ${obj.species} and my name is ${obj.name}. Nice to meet you! My gender is ${obj.gender} so I have ${obj.legs} legs and ${obj.hands} hands.`;  
+   let messageText = [
+       obj.saying,
+      `I am a ${obj.species}`,
+      `and`, 
+      `my name is ${obj.name}`,
+      `Nice to meet you!`,
+      `My gender is ${obj.gender}`, 
+      'so',
+      `I have ${obj.legs} legs`, 
+      `and`,
+      `${obj.hands} hands`
+   ]; 
+
+   return messageText.join(' ');  
 } 
 
 inhabitants.forEach(inhabitant => print(message(inhabitant))); 
@@ -71,5 +84,3 @@ inhabitants.forEach(inhabitant => print(message(inhabitant)));
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
-
-
