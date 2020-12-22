@@ -8,64 +8,58 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 
-const man = {
-   species: 'human',
-   name: 'Mark',
-   gender: 'male',
-   legs: 2,
-   hands: 2,
-   saying: 'Hi, there!'
-};
+class Inhabitant {
+   constructor(name, gender, saying, species) {
+      this.name = name; 
+      this.gender = gender; 
+      this.saying = saying; 
+      this.species = species; 
+   };
 
-const woman = {
-   species: 'human',
-   name: 'Jane',
-   gender: 'female',
-   legs: 2,
-   hands: 2,
-   saying: 'Hello, darling!'
-};
-
-const dog = {
-   species: 'dog',
-   name: 'Donny',
-   gender: 'male',
-   legs: 4,
-   hands: 0,
-   saying: 'Woof!'
-};
-
-const cat = {
-   species: 'cat',
-   name: 'Beniia',
-   gender: 'male',
-   legs: 4,
-   hands: 0,
-   saying: 'Mrrrr!'
-};
-
-// ======== OUTPUT ========
-
-const inhabitants = [man, woman, dog, cat]; 
-
-let message = (obj) => {
-   let messageText = [
-       obj.saying,
-      `I am a ${obj.species}`,
-      `and`, 
-      `my name is ${obj.name}`,
+   getMessage() {
+      const messageText = [
+      this.saying,
+      `I am a ${this.species}.`, 
+      `My name is ${this.name}.`,
       `Nice to meet you!`,
-      `My gender is ${obj.gender}`, 
-      'so',
-      `I have ${obj.legs} legs`, 
-      `and`,
-      `${obj.hands} hands`
+      `My gender is ${this.gender}.`
    ]; 
 
    return messageText.join(' ');  
-} 
+   }
+}
 
-inhabitants.forEach(inhabitant => print(message(inhabitant))); 
+class Human extends Inhabitant {
+   constructor(name, gender, saying, species) {
+      super(name, gender, saying, species); 
+      this.hands = 2; 
+      this.legs = 2; 
+   }
+
+   getMessage () {
+      return `${super.getMessage()} I have ${this.legs} legs and ${this.hands} hands.` 
+   }
+}
+
+class Animal extends Inhabitant {
+   constructor(name, gender, saying, species) {
+      super(name, gender, saying, species); 
+      this.legs = 4; 
+   }
+
+   getMessage () {
+      return `${super.getMessage()} I have ${this.legs} legs.`
+   }
+}
+
+const man = new Human('Mark', 'male', 'Hi, there!', 'human'); 
+const woman = new Human('Jane', 'female', 'Hello, darling!', 'human'); 
+const dog = new Animal('Donny', 'male', 'Woof!', 'dog'); 
+const cat = new Animal('Beniia', 'male', 'Mrrrr!','cat')
+
+const inhabitants = [man, woman, dog, cat]; 
+
+inhabitants.forEach(inhabitant => print(inhabitant.getMessage())); 
 
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
