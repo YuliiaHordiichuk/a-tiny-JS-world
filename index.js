@@ -1,7 +1,7 @@
 /* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
    Complete the below for code reviewers' convenience:
 
-   Code repository: https://github.com/YuliiaHordiichuk/a-tiny-JS-world
+   Code repository: https://github.com/YuliiaHordiichuk/a-tiny-JS-world/tree/post-oop
    Web app: https://yuliiahordiichuk.github.io/a-tiny-JS-world/
    */
 
